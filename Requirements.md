@@ -4,10 +4,10 @@ This project is going to perform computation on big numbers. The users who want 
 
 Details of the Computation: 
 a.	big numbers with thousands of digits
-b.	integer numbers
+b.	positive integer numbers
 c.	two numbers
 d.	addition and subtraction
-e.  If input numbers are not big numbers(less than thousand digits), then give a hint that the input numbers are not big numbers and return the result.
+e.  If input numbers are not big numbers(less than 20 digits), then give a hint that the input numbers are not big numbers and return the result.
 f.  If input contents are not numbers, then give a hint that just allow to input numbers and allow the users to input numbers again.
 g.  If input numbers are more than two, then give a hint that just allow to input two numbers and allow the users to input numbers again.
 h.  If input number are not integer, then give a hint that just allow to input the integer numbers and allow the users to input numbers again.
