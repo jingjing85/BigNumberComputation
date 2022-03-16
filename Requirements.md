@@ -1,9 +1,6 @@
 Requirements 
 
-This project is going to perform computation on big numbers. The users who want to 
-compute the addition and subtraction of big numbers with thousands of digits and cannot use ordinary calculators to get the result now can use
-this project to figure them out successfully just by entering two big numbers. And this project can not only compute addition and subtraction 
-of big numbers, but also ordinary numbers, so it is very useful.
+This project is going to perform computation on big numbers. The users who want to compute the addition and subtraction of big numbers with thousands of digits and cannot use ordinary calculators to get the result now can use this project to figure them out successfully just by entering two big numbers. And this project can not only compute addition and subtraction of big numbers, but also ordinary numbers, so it is very useful.
 Details of the Computation: 
 a.	big numbers with thousands of digits
 b.	integer numbers
