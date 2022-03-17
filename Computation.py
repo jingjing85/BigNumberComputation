@@ -1,7 +1,7 @@
 import sys
 
 
-def func():
+def computation():
     while True:
         # tmpList = ['0'] * 2
         # print(tmpList)
@@ -21,7 +21,8 @@ def func():
                     b = tmpList[1]
                     c = addition(a, b)
                     d = subtraction(a, b)
-                    print("%s+%s=%s" % (a, b, c))
+                    # print("%s+%s=%s" % (a, b, c))
+                    print("%s-%s=%s" % (a, b, d))
                     # print(len(tmpList[0]))
                     # print(tmpList[0].isdigit())
                     continue
@@ -30,7 +31,8 @@ def func():
                     b = tmpList[1]
                     c = addition(a, b)
                     d = subtraction(a, b)
-                    print("%s+%s=%s" % (a, b, c))
+                    # print("%s+%s=%s" % (a, b, c))
+                    print("%s-%s=%s" % (a, b, d))
                     # print(len(tmpList[0]))
                     # print(tmpList[0].isdigit())
                     continue
@@ -44,19 +46,24 @@ def addition(a, b):
     carry = 0
     result = ''
     minLen = min(len(num1), len(num2))
+    # the part of comment length
     for i in range(minLen):
+        # print("AAAAA")
         temp = int(num1[i]) + int(num2[i]) + carry
         carry = temp // 10
         result = result + str(temp % 10)
     # print("result：" + result)
     # print("carry: " + str(carry))
+
     if len(num1) < len(num2):
         for i in range(len(num1), len(num2)):
+            # print("BBBBBB")
             temp = int(num2[i]) + carry
             carry = temp // 10
             result = result + str(temp % 10)
     else:
         for i in range(len(num2), len(num1)):
+            # print("CCCCC")
             temp = int(num1[i]) + carry
             carry = temp // 10
             result = result + str(temp % 10)
@@ -70,8 +77,36 @@ def addition(a, b):
 
 
 def subtraction(a, b):
-    pass
+    num1 = a[::-1]
+    print("num1 " + str(num1))
+    num2 = b[::-1]
+    print("num2 " + str(num2))
+    borrow = 0
+    result = ''
+    minLen = min(len(num1), len(num2))
+
+    for i in range(minLen):
+        if num1[i] >= num2[i]:
+            temp = int(num1[i]) - int(num2[i])
+            result = result + str(temp)
+        else:
+            temp = int(num1[i]) + 10 - borrow - int(num2[i])
+            # num1[i+1] = num1[i+1] - 1
+            borrow = 1
+            result = result + str(temp)
+
+    if len(num1) > len(num2):
+        for i in range(len(num2), len(num1)):
+            temp = int(num1[i]) - borrow
+            result = result + str(temp)
+    else:
+        for i in range(len(num1), len(num2)):
+            temp = int(num2[i]) - borrow
+            result = result + str(temp)
+    # print("result: " + result)
+    finalResult = result[::-1]
+    return finalResult
 
 
 if __name__ == '__main__':
-    func()
+    computation()
