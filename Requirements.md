@@ -11,5 +11,5 @@ e.  If input numbers are not big numbers(less than 20 digits), then give a hint 
 f.  If input contents are not numbers, then give a hint that just allow to input numbers and allow the users to input numbers again.
 g.  If input numbers are more than two, then give a hint that just allow to input two numbers and allow the users to input numbers again.
 h.  If input number are not integer, then give a hint that just allow to input the integer numbers and allow the users to input numbers again.
-i.  support the numbers with same digits and different digits
+i.  support the two numbers with same digits and different digits
 
