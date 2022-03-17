@@ -78,33 +78,52 @@ def addition(a, b):
 
 def subtraction(a, b):
     num1 = a[::-1]
-    print("num1 " + str(num1))
+    # print("num1 " + str(num1))
     num2 = b[::-1]
-    print("num2 " + str(num2))
+    # print("num2 " + str(num2))
     borrow = 0
     result = ''
     minLen = min(len(num1), len(num2))
-
-    for i in range(minLen):
-        if num1[i] >= num2[i]:
-            temp = int(num1[i]) - int(num2[i])
-            result = result + str(temp)
-        else:
-            temp = int(num1[i]) + 10 - borrow - int(num2[i])
-            # num1[i+1] = num1[i+1] - 1
-            borrow = 1
-            result = result + str(temp)
-
     if len(num1) > len(num2):
-        for i in range(len(num2), len(num1)):
-            temp = int(num1[i]) - borrow
-            result = result + str(temp)
+        # print("DDDDD")
+        for i in range(minLen):
+            if num1[i] >= num2[i]:
+                temp = int(num1[i]) - int(num2[i])
+                result = result + str(temp)
+            else:
+                temp = int(num1[i]) + 10 - borrow - int(num2[i])
+                # num1[i+1] = num1[i+1] - 1
+                borrow = 1
+                result = result + str(temp)
+
+        if len(num1) > len(num2):
+            for i in range(len(num2), len(num1)):
+                temp = int(num1[i]) - borrow
+                borrow = 0
+                result = result + str(temp)
+        finalResult = result[::-1]
     else:
-        for i in range(len(num1), len(num2)):
-            temp = int(num2[i]) - borrow
-            result = result + str(temp)
+        # for i in range(len(num1), len(num2)):
+        #     temp = int(num2[i]) - borrow
+        #     result = result + str(tem
+        # print("EEEEE")
+        for i in range(minLen):
+            if num2[i] >= num1[i]:
+                temp = int(num2[i]) - int(num1[i])
+                result = result + str(temp)
+            else:
+                temp = int(num2[i]) + 10 - borrow - int(num1[i])
+                # num1[i+1] = num1[i+1] - 1
+                borrow = 1
+                result = result + str(temp)
+
+        if len(num2) > len(num1):
+            for i in range(len(num1), len(num2)):
+                temp = int(num2[i]) - borrow
+                borrow = 0
+                result = result + str(temp)
     # print("result: " + result)
-    finalResult = result[::-1]
+        finalResult = '-' + result[::-1]
     return finalResult
 
 
