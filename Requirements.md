@@ -6,10 +6,12 @@ Details of the Computation:
 a.	big numbers with thousands of digits
 b.	positive integer numbers
 c.	two numbers
-d.	addition and subtraction
-e.  If input numbers are not big numbers(less than 20 digits), then give a hint that the input numbers are not big numbers and return the result.
-f.  If input contents are not numbers, then give a hint that just allow to input numbers and allow the users to input numbers again.
-g.  If input numbers are more than two, then give a hint that just allow to input two numbers and allow the users to input numbers again.
-h.  If input number are not integer, then give a hint that just allow to input the integer numbers and allow the users to input numbers again.
-i.  support the two numbers with same digits and different digits
+d.	support the numbers with same digits and different digits
+e.	addition and subtraction
+f.	If input numbers are not big numbers (less than 20 digits), output result correctly.
+g.	If input numbers are both big numbers, output result correctly.
+h.	If input one is big number and another one is not big number, output result correctly.
+i.	If input contents are not numbers, then give a hint that just allow to input numbers and allow the users to input numbers again.
+j.	If input numbers are more than two, then give a hint that just allow to input two numbers and allow the users to input numbers again.
+k.	If input number are not integer, then give a hint that just allow to input the integer numbers and allow the users to input numbers again.
 
