@@ -3,7 +3,6 @@ import sys
 
 
 def computation():
-    number = r'^0\.\d+$|^[1-9]\d*\.\d+$'
     while True:
         # tmpList = ['0'] * 2
         # print(tmpList)
@@ -15,8 +14,7 @@ def computation():
             # if not tmpList[0]
         elif (not re.match("^[0-9]+$", tmpList[0]) and not re.match("^\d+\.\d+$", tmpList[0])) or (not re.match(
                 "^[0-9]+$", tmpList[1]) and not re.match("^\d+\.\d+$", tmpList[1])):
-            # if not tmpList[0].isdigit() or not tmpList[1].isdigit():
-            print("QQQQ")
+            # print("QQQQ")
             print("The input is invalid, please input again.")
             continue
         else:
