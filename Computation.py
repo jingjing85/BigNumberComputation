@@ -1,45 +1,41 @@
-import re
-import sys
-
 
 def computation():
     while True:
         # tmpList = ['0'] * 2
-        # print(tmpList)
+        #wht print(tmpList)
         tmpList = input("Please input two big numbers and split them with white space:").strip().split()
         # print(tmpList, sys._getframe().f_lineno)
         if len(tmpList) != 2:
             print("The number of the input is not two, please input again. ")
             continue
-            # if not tmpList[0]
-        elif (not re.match("^[0-9]+$", tmpList[0]) and not re.match("^\d+\.\d+$", tmpList[0])) or (not re.match(
-                "^[0-9]+$", tmpList[1]) and not re.match("^\d+\.\d+$", tmpList[1])):
-            # print("QQQQ")
-            print("The input is invalid, please input again.")
-            continue
         else:
-            # two numbers both integer numbers but not big numbers
-            if (len(tmpList[0]) < 20 or len(tmpList[1]) < 20) and (
-                    re.match("^[0-9]+$", tmpList[0]) and re.match("^[0-9]+$", tmpList[1])):
-                print("The input is not big number.")
-                a = tmpList[0]
-                b = tmpList[1]
-                c = addition(a, b)
-                d = subtraction(a, b)
-                print("%s+%s=%s" % (a, b, c))
-                print("%s-%s=%s" % (a, b, d))
+            # if not tmpList[0]
+            if not tmpList[0].isdigit() or not tmpList[1].isdigit():
+                print("The input is valid, just allow to input positive integer numbers, please input again.")
                 continue
             else:
-                # print("XXXXXX")
-                a = tmpList[0]
-                b = tmpList[1]
-                c = addition(a, b)
-                d = subtraction(a, b)
-                print("%s+%s=%s" % (a, b, c))
-                print("%s-%s=%s" % (a, b, d))
-                # print(len(tmpList[0]))
-                # print(tmpList[0].isdigit())
-                continue
+                if len(tmpList[0]) < 20 or len(tmpList[1]) < 20:
+                    print("The input is not big number.")
+                    a = tmpList[0]
+                    b = tmpList[1]
+                    c = addition(a, b)
+                    d = subtraction(a, b)
+                    print("%s+%s=%s" % (a, b, c))
+                    print("%s-%s=%s" % (a, b, d))
+                    # print(len(tmpList[0]))
+                    # print(tmpList[0].isdigit())
+                    continue
+                else:
+                    # print("MMMMMMMMMM")
+                    a = tmpList[0]
+                    b = tmpList[1]
+                    c = addition(a, b)
+                    d = subtraction(a, b)
+                    print("%s+%s=%s" % (a, b, c))
+                    print("%s-%s=%s" % (a, b, d))
+                    # print(len(tmpList[0]))
+                    # print(tmpList[0].isdigit())
+                    continue
 
 
 def addition(a, b):
