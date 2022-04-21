@@ -27,17 +27,8 @@ def computation():
                 b = tmpList[1]
                 c = addition(a, b)
                 d = subtraction(a, b)
-                # print("d" + d)
-                # N = d.count(0)
-                # print(N)
-                # d = "".join(d[::-1]).lstrip("0")
-
-                # d = "".join(d).rstrip("0")
-                # print("d " + str(d))
-                # finalResult = "-" + result[::-1]
-                # print("finalResult " +str(finalResult) )
-                print("%s+%s=%s" % (a, b, c))
-                print("%s-%s=%s" % (a, b, d))
+                print("%s + %s = %s" % (a, b, c))
+                print("%s - %s = %s" % (a, b, d))
                 continue
             # at least one of the numbers with a decimal point but both of them are not big numbers
             elif (len(tmpList[0]) < 20 and len(tmpList[1]) < 20) and (
@@ -68,7 +59,7 @@ def computation():
                     firstPart = addition(subStr1First, subStr2First)
                     secondPart = addition(subStr1Second, subStr2Second)
                     sum = firstPart + "." + secondPart
-                    print("%s+%s=%s" % (tmpList[0], tmpList[1], sum))
+                    print("%s + %s = %s" % (tmpList[0], tmpList[1], sum))
 
                     # calculate the diff
                     # just calculate skip . as if they are integer numbers, then at last add . in the result
@@ -94,14 +85,14 @@ def computation():
                         if len(before) == 0:
                             finalDiff = "-0" + middleDiff
                         # print(finalDiff)
-                        print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                     else:
                         middle = finalDiff.split(".")
                         before = middle[0]
                         if len(before) == 0:
                             finalDiff = "0" + finalDiff
                         # print(finalDiff)
-                        print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
 
                 # first one a decimal point, second one is integer number
                 elif log2 == -1:
@@ -120,7 +111,7 @@ def computation():
                     firstPart = addition(subStr1First, subStr2First)
                     secondPart = addition(subStr1Second, subStr2Second)
                     sum = firstPart + "." + secondPart
-                    print("%s+%s=%s" % (tmpList[0], tmpList[1], sum))
+                    print("%s + %s = %s" % (tmpList[0], tmpList[1], sum))
 
                     first = subStr1First + subStr1Second
                     second = subStr2First + subStr2Second
@@ -149,7 +140,7 @@ def computation():
                         if len(before) == 0:
                             finalDiff = "-0" + middleDiff
                         # print(finalDiff)
-                        print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                     else:
                         # middle = finalDiff.split(".")
                         # before = middle[0]
@@ -158,7 +149,7 @@ def computation():
                         if len(before) == 0:
                             finalDiff = "0" + finalDiff
                         # print(finalDiff)
-                        print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
 
                 # both with decimal points
                 else:
@@ -192,7 +183,7 @@ def computation():
                     sumList = list(sum)
                     sumList.insert(-p, '.')
                     finalSum = "".join(sumList)
-                    print("%s+%s=%s" % (tmpList[0], tmpList[1], finalSum))
+                    print("%s + %s = %s" % (tmpList[0], tmpList[1], finalSum))
 
                     # calculate the diff
                     diff = subtraction(first, second)
@@ -232,21 +223,21 @@ def computation():
                                 # finalDiff = "-" + before + after
                                 finalDiff = "-" + "0." + "0" * (
                                         max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
-                                print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                                 if after == "0":
                                     # print("case 5")
                                     before = "0."
                                     # print(before)
                                     finalDiff = "-" + before + after
                                     # print(finalDiff)
-                                    print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                                    print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                             else:
                                 finalDiff = "-" + "0" * (
                                         max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
                                 # print(finalDiff)
                                 finalDiff = "-" + "0." + "0" * (
                                         max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
-                                print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                         elif len(after) >= big:
                             # print("KKKKKKKKKK")
                             diffList = list(finalDiff)
@@ -267,7 +258,7 @@ def computation():
                                 # if before.count("0") ==
                                 after = "".join(after).lstrip("0")
                                 finalDiff = "-0" + after
-                                print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                             else:
                                 diffList.insert(-big, '.')
                                 finalDiff = "".join(diffList)
@@ -294,7 +285,7 @@ def computation():
                                         # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
                                     else:
                                         finalDiff = finalDiff
-                                print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                         #
                     # if the result is positive
                     else:
@@ -327,7 +318,7 @@ def computation():
                                 else:
                                     # print("case 3")
                                     finalDiff = "".join(finalDiff).rstrip("0")
-                            print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                            print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                         # print(finalDiff)
                         # result is not begin with 0.
                         else:
@@ -335,7 +326,7 @@ def computation():
                             # print("after " + str(after))
                             if after == "0" and before == "0":
                                 finalDiff = "0.0"
-                                print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                             else:
                                 # if (max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) == 0:
                                 #     finalDiff = before + ".0"
@@ -350,7 +341,7 @@ def computation():
                                 else:
                                     finalDiff = "".join(finalDiff).rstrip("0")
                                 # return finalDiff
-                                print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
 
                     # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
             # at least one of the numbers is big numbers with a decimal point
@@ -382,7 +373,7 @@ def computation():
                     firstPart = addition(subStr1First, subStr2First)
                     secondPart = addition(subStr1Second, subStr2Second)
                     sum = firstPart + "." + secondPart
-                    print("%s+%s=%s" % (tmpList[0], tmpList[1], sum))
+                    print("%s + %s = %s" % (tmpList[0], tmpList[1], sum))
 
                     # calculate the diff
                     # just calculate skip . as if they are integer numbers, then at last add . in the result
@@ -408,18 +399,18 @@ def computation():
                         if len(before) == 0:
                             finalDiff = "-0" + middleDiff
                         # print(finalDiff)
-                        print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                     else:
                         middle = finalDiff.split(".")
                         before = middle[0]
                         if len(before) == 0:
                             finalDiff = "0" + finalDiff
                         # print(finalDiff)
-                        print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
 
                 # first one a decimal point, second one is integer number
                 elif log2 == -1:
-                    print("22222222")
+                    # print("22222222")
                     # print(tmpList[0])
                     # log = tmpList[0].find('.')
                     # print("log" + str(log))
@@ -434,7 +425,7 @@ def computation():
                     firstPart = addition(subStr1First, subStr2First)
                     secondPart = addition(subStr1Second, subStr2Second)
                     sum = firstPart + "." + secondPart
-                    print("%s+%s=%s" % (tmpList[0], tmpList[1], sum))
+                    print("%s + %s = %s" % (tmpList[0], tmpList[1], sum))
 
                     first = subStr1First + subStr1Second
                     second = subStr2First + subStr2Second
@@ -447,8 +438,8 @@ def computation():
                     diffList = list(diff)
                     diffList.insert(-p, '.')
                     finalDiff = "".join(diffList).lstrip("0")
-                    print("diffList1 " + str(diffList))
-                    print("finalDiff1" + str(finalDiff))
+                    # print("diffList1 " + str(diffList))
+                    # print("finalDiff1" + str(finalDiff))
                     # if len(before) == 0:
                     #     finalDiff = "0" + finalDiff
                     # # d = "".join(finalDiff[::-1]).lstrip("0")
@@ -463,7 +454,7 @@ def computation():
                         if len(before) == 0:
                             finalDiff = "-0" + middleDiff
                         # print(finalDiff)
-                        print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                     else:
                         # middle = finalDiff.split(".")
                         # before = middle[0]
@@ -472,7 +463,7 @@ def computation():
                         if len(before) == 0:
                             finalDiff = "0" + finalDiff
                         # print(finalDiff)
-                        print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
 
                 # both with decimal points
                 else:
@@ -547,23 +538,23 @@ def computation():
                                 # finalDiff = "-" + before + after
                                 finalDiff = "-" + "0." + "0" * (
                                         max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
-                                print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                                 if after == "0":
                                     # print("case 5")
                                     before = "0."
                                     # print(before)
                                     finalDiff = "-" + before + after
                                     # print(finalDiff)
-                                    print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                                    print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                             else:
                                 # print("case 6")
                                 # print(finalDiff)
                                 finalDiff = "-" + "0" * (
-                                            max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
+                                        max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
                                 # print(finalDiff)
                                 finalDiff = "-" + "0." + "0" * (
                                         max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
-                                print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                         elif len(after) >= big:
                             # print("KKKKKKKKKK")
                             diffList = list(finalDiff)
@@ -584,7 +575,7 @@ def computation():
                                 # if before.count("0") ==
                                 after = "".join(after).lstrip("0")
                                 finalDiff = "-0" + after
-                                print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                             else:
                                 diffList.insert(-big, '.')
                                 finalDiff = "".join(diffList)
@@ -611,7 +602,7 @@ def computation():
                                         # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
                                     else:
                                         finalDiff = finalDiff
-                                print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                         #
                     # if the result is positive
                     else:
@@ -644,7 +635,7 @@ def computation():
                                 else:
                                     # print("case 3")
                                     finalDiff = "".join(finalDiff).rstrip("0")
-                            print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                            print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                         # print(finalDiff)
                         # result is not begin with 0.
                         else:
@@ -652,7 +643,7 @@ def computation():
                             # print("after " + str(after))
                             if after == "0" and before == "0":
                                 finalDiff = "0.0"
-                                print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
                             else:
                                 # if (max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) == 0:
                                 #     finalDiff = before + ".0"
@@ -667,22 +658,17 @@ def computation():
                                 else:
                                     finalDiff = "".join(finalDiff).rstrip("0")
                                 # return finalDiff
-                                print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
 
                     # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
             # two numbers both integer big numbers
             else:
-                # print("XXXXXX")
                 a = tmpList[0]
                 b = tmpList[1]
                 c = addition(a, b)
                 d = subtraction(a, b)
-                # print("d" + d)
-                # d = "".join(d[::-1]).lstrip("0")
-                print("%s+%s=%s" % (a, b, c))
-                print("%s-%s=%s" % (a, b, d))
-                # print(len(tmpList[0]))
-                # print(tmpList[0].isdigit())
+                print("%s + %s = %s" % (a, b, c))
+                print("%s - %s = %s" % (a, b, d))
                 continue
 
 
