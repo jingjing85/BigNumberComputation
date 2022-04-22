@@ -8,7 +8,7 @@ def computation():
         tmpList = input("Please input two big numbers and split them with one white space:").strip().split()
         # print(tmpList, sys._getframe().f_lineno)
         if len(tmpList) != 2:
-            print("The number of the input is not two, please input again. ")
+            print("The # of the input is not two, please input again. ")
             continue
             # check the input, if they match the format(integer big numbers or big number with one decimal point)
             # if not match
@@ -16,6 +16,7 @@ def computation():
                 "^[0-9]+$", tmpList[1]) and not re.match("^\d+\.\d+$", tmpList[1])):
             print("The input is invalid, please input again.")
             continue
+
         else:
             # two numbers both integer numbers but not big numbers
             if (len(tmpList[0]) < 20 or len(tmpList[1]) < 20) and (
@@ -34,632 +35,24 @@ def computation():
             elif (len(tmpList[0]) < 20 and len(tmpList[1]) < 20) and (
                     re.match("^\d+\.\d+$", tmpList[0]) or re.match("^\d+\.\d+$", tmpList[1])):
                 print("The input is not big number.")
-                # find the index of decimal point
-                log1 = tmpList[0].find('.')
-                # print(log1)
-                log2 = tmpList[1].find('.')
-                # first number is integer number, second one has a decimal point
-                if log1 == -1:
-                    # print("11111111")
-                    # split the numbers into two parts with .
-                    # xxxFirst is the first part of numbers that before .
-                    # xxxFirst is the second part of numbers that after .
-                    subStr2 = tmpList[1].split('.')
-                    subStr2First = subStr2[0]
-                    subStr2Second = subStr2[1]
-                    subStr1First = tmpList[0]
-                    subStr1Second = ''
-
-                    # Adding 0 in the behind of  the two numbers to make sure that second parts have the same length
-                    N = len(subStr2Second) - len(subStr1Second)
-                    # print(N)
-                    subStr1Second += "0" * N
-
-                    # calculate the sum
-                    firstPart = addition(subStr1First, subStr2First)
-                    secondPart = addition(subStr1Second, subStr2Second)
-                    sum = firstPart + "." + secondPart
-                    print("%s + %s = %s" % (tmpList[0], tmpList[1], sum))
-
-                    # calculate the diff
-                    # just calculate skip . as if they are integer numbers, then at last add . in the result
-                    first = subStr1First + subStr1Second
-                    second = subStr2First + subStr2Second
-                    # print("first " + first)
-                    # print("second " + second)
-                    diff = subtraction(first, second)
-                    # print("diff" + diff)
-                    p = len(subStr1Second)
-                    # print("p " + str(p))
-                    diffList = list(diff)
-                    diffList.insert(-p, '.')
-                    # print(diffList)
-                    finalDiff = "".join(diffList)
-                    # print("finalDiff" + finalDiff)
-                    # print(finalDiff[0])
-                    if finalDiff[0] == '-':
-                        middleDiff = finalDiff[1:]
-                        # print(middleDiff)
-                        middle = middleDiff.split(".")
-                        before = middle[0]
-                        if len(before) == 0:
-                            finalDiff = "-0" + middleDiff
-                        # print(finalDiff)
-                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                    else:
-                        middle = finalDiff.split(".")
-                        before = middle[0]
-                        if len(before) == 0:
-                            finalDiff = "0" + finalDiff
-                        # print(finalDiff)
-                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-
-                # first one a decimal point, second one is integer number
-                elif log2 == -1:
-                    # print("22222222")
-                    # print(tmpList[0])
-                    # log = tmpList[0].find('.')
-                    # print("log" + str(log))
-                    subStr1 = tmpList[0].split('.')
-                    subStr1First = subStr1[0]
-                    subStr1Second = subStr1[1]
-                    subStr2First = tmpList[1]
-                    subStr2Second = ''
-
-                    N = len(subStr1Second) - len(subStr2Second)
-                    subStr2Second += "0" * N
-                    firstPart = addition(subStr1First, subStr2First)
-                    secondPart = addition(subStr1Second, subStr2Second)
-                    sum = firstPart + "." + secondPart
-                    print("%s + %s = %s" % (tmpList[0], tmpList[1], sum))
-
-                    first = subStr1First + subStr1Second
-                    second = subStr2First + subStr2Second
-                    # print("first " + first)
-                    # print("second " + second)
-                    diff = subtraction(first, second)
-                    # print("diff" + diff)
-                    p = len(subStr1Second)
-                    # print("p " + str(p))
-                    diffList = list(diff)
-                    diffList.insert(-p, '.')
-                    finalDiff = "".join(diffList).lstrip("0")
-                    # print("diffList1 " + str(diffList))
-                    # print("finalDiff1" + str(finalDiff))
-                    # if len(before) == 0:
-                    #     finalDiff = "0" + finalDiff
-                    # # d = "".join(finalDiff[::-1]).lstrip("0")
-                    # # print(d)
-                    # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
-
-                    if finalDiff[0] == '-':
-                        middleDiff = finalDiff[1:]
-                        # print(middleDiff)
-                        middle = middleDiff.split(".")
-                        before = middle[0]
-                        if len(before) == 0:
-                            finalDiff = "-0" + middleDiff
-                        # print(finalDiff)
-                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                    else:
-                        # middle = finalDiff.split(".")
-                        # before = middle[0]
-                        middle = finalDiff.split(".")
-                        before = middle[0]
-                        if len(before) == 0:
-                            finalDiff = "0" + finalDiff
-                        # print(finalDiff)
-                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-
-                # both with decimal points
-                else:
-                    # print("333333333")
-                    subStr1 = tmpList[0].split('.')
-                    subStr2 = tmpList[1].split('.')
-                    subStr1First = subStr1[0]
-                    subStr1Second = subStr1[1]
-                    subStr2First = subStr2[0]
-                    subStr2Second = subStr2[1]
-                    big = max(len(subStr1Second), len(subStr2Second))
-                    # print("big " + str(big))
-
-                    # make sure that two numbers after decimal point have same length, then we can calculate them easier
-                    if len(subStr1Second) > len(subStr2Second):
-                        N = len(subStr1Second) - len(subStr2Second)
-                        subStr2Second += "0" * N
-                    else:
-                        N = len(subStr2Second) - len(subStr1Second)
-                        subStr1Second += "0" * N
-
-                    first = subStr1First + subStr1Second
-                    second = subStr2First + subStr2Second
-                    # print("first " + first)
-                    # print("second " + second)
-                    p = len(subStr1Second)
-                    # print("p " + str(p))
-
-                    # calculate the sum
-                    sum = addition(first, second)
-                    sumList = list(sum)
-                    sumList.insert(-p, '.')
-                    finalSum = "".join(sumList)
-                    print("%s + %s = %s" % (tmpList[0], tmpList[1], finalSum))
-
-                    # calculate the diff
-                    diff = subtraction(first, second)
-                    diffList = list(diff)
-                    # print(diffList)
-                    # diffList.insert(1, '.')
-                    finalDiff = "".join(diffList)
-                    # print(finalDiff)
-
-                    # if the result is negative
-                    if finalDiff[0] == '-':
-                        # print("result is negative")
-                        big = max(len(subStr1Second), len(subStr2Second))
-                        diffList.insert(-big, '.')
-                        finalDiff = "".join(diffList)
-                        # print(finalDiff)
-                        middleDiff = finalDiff[1:]
-                        # print(middleDiff)
-                        middle = middleDiff.split(".")
-                        # print(middle)
-                        before = middle[0]
-                        after = middle[1]
-                        before = "".join(before).lstrip("0")
-                        # print("before " + before)
-                        # print("after " + after)
-                        # finalDiff = "-" + before + after
-                        # print(finalDiff)
-                        if len(after) < big:
-                            # print("GGGGGG")
-                            # print(finalDiff)
-                            # print(max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1)
-                            if len(before) == 0:
-                                # print("case 4")
-                                # print(finalDiff)
-                                # before = "0."
-                                # print(before)
-                                # finalDiff = "-" + before + after
-                                finalDiff = "-" + "0." + "0" * (
-                                        max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
-                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                                if after == "0":
-                                    # print("case 5")
-                                    before = "0."
-                                    # print(before)
-                                    finalDiff = "-" + before + after
-                                    # print(finalDiff)
-                                    print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                            else:
-                                finalDiff = "-" + "0" * (
-                                        max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
-                                # print(finalDiff)
-                                finalDiff = "-" + "0." + "0" * (
-                                        max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
-                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                        elif len(after) >= big:
-                            # print("KKKKKKKKKK")
-                            diffList = list(finalDiff)
-                            # print(diffList)
-                            diffMiddle = "".join(diffList)
-                            # print(diffMiddle)
-                            listMiddle = diffMiddle.split(".")
-                            diffList = listMiddle[0] + listMiddle[1]
-                            diffList = list(diffList)
-                            # print(diffList)
-                            if len(before) == 0 and len(after) == big:
-                                # print("case 3")
-                                diffList.insert(-big, '.')
-                                # print(diffList)
-                                finalDiff = "".join(diffList)
-                                listMiddle = diffMiddle.split("-")
-                                after = listMiddle[1]
-                                # if before.count("0") ==
-                                after = "".join(after).lstrip("0")
-                                finalDiff = "-0" + after
-                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                            else:
-                                diffList.insert(-big, '.')
-                                finalDiff = "".join(diffList)
-                                # print("!3333")
-                                # print(finalDiff)
-                                listMiddle = finalDiff.split(".")
-                                after = listMiddle[1]
-                                # diffList = list(diffList)
-                                if after.count("0") >= len(after):
-                                    # print("case 2")
-                                    # print(before)
-                                    finalDiff = "-" + before + "." + after
-                                    finalDiff = "".join(finalDiff).rstrip("0")
-                                    finalDiff = finalDiff + "0"
-                                else:
-                                    # print("case 1")
-                                    finalDiff = "".join(finalDiff).rstrip("0")
-                                    middleList = finalDiff.split(".")
-                                    before = middleList[0]
-                                    after = middleList[1]
-                                    if before.count("0") >= (len(before) - 1):
-                                        before = "0."
-                                        finalDiff = "-" + before + after
-                                        # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
-                                    else:
-                                        finalDiff = finalDiff
-                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                        #
-                    # if the result is positive
-                    else:
-                        # print("SSSSSSssss")
-                        diffList.insert(-p, '.')
-                        finalDiff = "".join(diffList)
-                        # print(finalDiff)
-                        # middle = finalDiff.split(".")
-                        # before = middle[0]
-                        middle = finalDiff.split(".")
-                        before = middle[0]
-                        after = middle[1]
-                        # print("before " + before)
-                        # print("after " + str(after))
-                        # after = middle[1]
-                        # result is begin with 0.
-                        if len(before) == 0:
-                            # print("1111")
-                            if after == "0":
-                                # print("case 5")
-                                finalDiff = "0." + after
-                                # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
-                            else:
-                                finalDiff = "0." + "0" * (
-                                        max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
-                                if after.count("0") > 1:
-                                    # print("case 4")
-                                    finalDiff = "".join(finalDiff).rstrip("0")
-                                    finalDiff = finalDiff + "0"
-                                else:
-                                    # print("case 3")
-                                    finalDiff = "".join(finalDiff).rstrip("0")
-                            print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                        # print(finalDiff)
-                        # result is not begin with 0.
-                        else:
-                            # print("@@@@@@@@")
-                            # print("after " + str(after))
-                            if after == "0" and before == "0":
-                                finalDiff = "0.0"
-                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                            else:
-                                # if (max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) == 0:
-                                #     finalDiff = before + ".0"
-                                #     print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
-                                # else:
-                                # print("case 6")
-                                finalDiff = before + "." + "0" * (
-                                        max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
-                                if after.count("0") == len(after):
-                                    finalDiff = "".join(finalDiff).rstrip("0")
-                                    finalDiff = finalDiff + "0"
-                                else:
-                                    finalDiff = "".join(finalDiff).rstrip("0")
-                                # return finalDiff
-                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-
-                    # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
-            # at least one of the numbers is big numbers with a decimal point
+                a = tmpList[0]
+                b = tmpList[1]
+                c = additionWithDecimal(a, b)
+                d = subtractionWithDecimal(a,b)
+                print("%s + %s = %s" % (a, b, c))
+                print("%s - %s = %s" % (a, b, d))
+                continue
+            # at least one of the numbers with a decimal point and both of them are  big numbers
             elif (len(tmpList[0]) >= 20 or len(tmpList[1]) >= 20) and (
                     re.match("^\d+\.\d+$", tmpList[0]) or re.match("^\d+\.\d+$", tmpList[1])):
-                # print("LLLLL")
-                # find the index of decimal point
-                log1 = tmpList[0].find('.')
-                # print(log1)
-                log2 = tmpList[1].find('.')
-                # first number is integer number, second one has a decimal point
-                if log1 == -1:
-                    # print("11111111")
-                    # split the numbers into two parts with .
-                    # xxxFirst is the first part of numbers that before .
-                    # xxxFirst is the second part of numbers that after .
-                    subStr2 = tmpList[1].split('.')
-                    subStr2First = subStr2[0]
-                    subStr2Second = subStr2[1]
-                    subStr1First = tmpList[0]
-                    subStr1Second = ''
-
-                    # Adding 0 in the behind of  the two numbers to make sure that second parts have the same length
-                    N = len(subStr2Second) - len(subStr1Second)
-                    # print(N)
-                    subStr1Second += "0" * N
-
-                    # calculate the sum
-                    firstPart = addition(subStr1First, subStr2First)
-                    secondPart = addition(subStr1Second, subStr2Second)
-                    sum = firstPart + "." + secondPart
-                    print("%s + %s = %s" % (tmpList[0], tmpList[1], sum))
-
-                    # calculate the diff
-                    # just calculate skip . as if they are integer numbers, then at last add . in the result
-                    first = subStr1First + subStr1Second
-                    second = subStr2First + subStr2Second
-                    # print("first " + first)
-                    # print("second " + second)
-                    diff = subtraction(first, second)
-                    # print("diff" + diff)
-                    p = len(subStr1Second)
-                    # print("p " + str(p))
-                    diffList = list(diff)
-                    diffList.insert(-p, '.')
-                    # print(diffList)
-                    finalDiff = "".join(diffList)
-                    # print("finalDiff" + finalDiff)
-                    # print(finalDiff[0])
-                    if finalDiff[0] == '-':
-                        middleDiff = finalDiff[1:]
-                        # print(middleDiff)
-                        middle = middleDiff.split(".")
-                        before = middle[0]
-                        if len(before) == 0:
-                            finalDiff = "-0" + middleDiff
-                        # print(finalDiff)
-                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                    else:
-                        middle = finalDiff.split(".")
-                        before = middle[0]
-                        if len(before) == 0:
-                            finalDiff = "0" + finalDiff
-                        # print(finalDiff)
-                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-
-                # first one a decimal point, second one is integer number
-                elif log2 == -1:
-                    # print("22222222")
-                    # print(tmpList[0])
-                    # log = tmpList[0].find('.')
-                    # print("log" + str(log))
-                    subStr1 = tmpList[0].split('.')
-                    subStr1First = subStr1[0]
-                    subStr1Second = subStr1[1]
-                    subStr2First = tmpList[1]
-                    subStr2Second = ''
-
-                    N = len(subStr1Second) - len(subStr2Second)
-                    subStr2Second += "0" * N
-                    firstPart = addition(subStr1First, subStr2First)
-                    secondPart = addition(subStr1Second, subStr2Second)
-                    sum = firstPart + "." + secondPart
-                    print("%s + %s = %s" % (tmpList[0], tmpList[1], sum))
-
-                    first = subStr1First + subStr1Second
-                    second = subStr2First + subStr2Second
-                    # print("first " + first)
-                    # print("second " + second)
-                    diff = subtraction(first, second)
-                    # print("diff" + diff)
-                    p = len(subStr1Second)
-                    # print("p " + str(p))
-                    diffList = list(diff)
-                    diffList.insert(-p, '.')
-                    finalDiff = "".join(diffList).lstrip("0")
-                    # print("diffList1 " + str(diffList))
-                    # print("finalDiff1" + str(finalDiff))
-                    # if len(before) == 0:
-                    #     finalDiff = "0" + finalDiff
-                    # # d = "".join(finalDiff[::-1]).lstrip("0")
-                    # # print(d)
-                    # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
-
-                    if finalDiff[0] == '-':
-                        middleDiff = finalDiff[1:]
-                        # print(middleDiff)
-                        middle = middleDiff.split(".")
-                        before = middle[0]
-                        if len(before) == 0:
-                            finalDiff = "-0" + middleDiff
-                        # print(finalDiff)
-                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                    else:
-                        # middle = finalDiff.split(".")
-                        # before = middle[0]
-                        middle = finalDiff.split(".")
-                        before = middle[0]
-                        if len(before) == 0:
-                            finalDiff = "0" + finalDiff
-                        # print(finalDiff)
-                        print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-
-                # both with decimal points
-                else:
-                    # print("333333333")
-
-                    subStr1 = tmpList[0].split('.')
-                    subStr2 = tmpList[1].split('.')
-                    subStr1First = subStr1[0]
-                    subStr1Second = subStr1[1]
-                    subStr2First = subStr2[0]
-                    subStr2Second = subStr2[1]
-                    big = max(len(subStr1Second), len(subStr2Second))
-                    # print("big " + str(big))
-
-                    # make sure that two numbers after decimal point have same length, then we can calculate them easier
-                    if len(subStr1Second) > len(subStr2Second):
-                        N = len(subStr1Second) - len(subStr2Second)
-                        subStr2Second += "0" * N
-                    else:
-                        N = len(subStr2Second) - len(subStr1Second)
-                        subStr1Second += "0" * N
-
-                    first = subStr1First + subStr1Second
-                    second = subStr2First + subStr2Second
-                    # print("first " + first)
-                    # print("second " + second)
-                    p = len(subStr1Second)
-                    # print("p " + str(p))
-
-                    # calculate the sum
-                    sum = addition(first, second)
-                    sumList = list(sum)
-                    sumList.insert(-p, '.')
-                    finalSum = "".join(sumList)
-                    # print("%s+%s=%s" % (tmpList[0], tmpList[1], finalSum))
-
-                    # calculate the diff
-                    diff = subtraction(first, second)
-                    diffList = list(diff)
-                    # print(diffList)
-                    # diffList.insert(1, '.')
-                    finalDiff = "".join(diffList)
-                    # print(finalDiff)
-
-                    # if the result is negative
-                    if finalDiff[0] == '-':
-                        # print("result is negative")
-                        big = max(len(subStr1Second), len(subStr2Second))
-                        diffList.insert(-big, '.')
-                        finalDiff = "".join(diffList)
-                        # print(finalDiff)
-                        middleDiff = finalDiff[1:]
-                        # print(middleDiff)
-                        middle = middleDiff.split(".")
-                        # print(middle)
-                        before = middle[0]
-                        after = middle[1]
-                        before = "".join(before).lstrip("0")
-                        # print("before " + before)
-                        # print("after " + after)
-                        # finalDiff = "-" + before + after
-                        # print(finalDiff)
-                        if len(after) < big:
-                            # print("GGGGGG")
-                            # print(finalDiff)
-                            print(max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1)
-                            if len(before) == 0:
-                                # print("case 4")
-                                # print(finalDiff)
-                                # before = "0."
-                                # print(before)
-                                # finalDiff = "-" + before + after
-                                finalDiff = "-" + "0." + "0" * (
-                                        max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
-                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                                if after == "0":
-                                    # print("case 5")
-                                    before = "0."
-                                    # print(before)
-                                    finalDiff = "-" + before + after
-                                    # print(finalDiff)
-                                    print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                            else:
-                                # print("case 6")
-                                # print(finalDiff)
-                                finalDiff = "-" + "0" * (
-                                        max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
-                                # print(finalDiff)
-                                finalDiff = "-" + "0." + "0" * (
-                                        max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
-                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                        elif len(after) >= big:
-                            # print("KKKKKKKKKK")
-                            diffList = list(finalDiff)
-                            # print(diffList)
-                            diffMiddle = "".join(diffList)
-                            # print(diffMiddle)
-                            listMiddle = diffMiddle.split(".")
-                            diffList = listMiddle[0] + listMiddle[1]
-                            diffList = list(diffList)
-                            # print(diffList)
-                            if len(before) == 0 and len(after) == big:
-                                # print("case 3")
-                                diffList.insert(-big, '.')
-                                # print(diffList)
-                                finalDiff = "".join(diffList)
-                                listMiddle = diffMiddle.split("-")
-                                after = listMiddle[1]
-                                # if before.count("0") ==
-                                after = "".join(after).lstrip("0")
-                                finalDiff = "-0" + after
-                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                            else:
-                                diffList.insert(-big, '.')
-                                finalDiff = "".join(diffList)
-                                # print("!3333")
-                                # print(finalDiff)
-                                listMiddle = finalDiff.split(".")
-                                after = listMiddle[1]
-                                # diffList = list(diffList)
-                                if after.count("0") >= len(after):
-                                    # print("case 2")
-                                    # print(before)
-                                    finalDiff = "-" + before + "." + after
-                                    finalDiff = "".join(finalDiff).rstrip("0")
-                                    finalDiff = finalDiff + "0"
-                                else:
-                                    # print("case 1")
-                                    finalDiff = "".join(finalDiff).rstrip("0")
-                                    middleList = finalDiff.split(".")
-                                    before = middleList[0]
-                                    after = middleList[1]
-                                    if before.count("0") >= (len(before) - 1):
-                                        before = "0."
-                                        finalDiff = "-" + before + after
-                                        # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
-                                    else:
-                                        finalDiff = finalDiff
-                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                        #
-                    # if the result is positive
-                    else:
-                        # print("SSSSSSssss")
-                        diffList.insert(-p, '.')
-                        finalDiff = "".join(diffList)
-                        # print(finalDiff)
-                        # middle = finalDiff.split(".")
-                        # before = middle[0]
-                        middle = finalDiff.split(".")
-                        before = middle[0]
-                        after = middle[1]
-                        # print("before " + before)
-                        # print("after " + str(after))
-                        # after = middle[1]
-                        # result is begin with 0.
-                        if len(before) == 0:
-                            # print("1111")
-                            if after == "0":
-                                # print("case 5")
-                                finalDiff = "0." + after
-                                # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
-                            else:
-                                finalDiff = "0." + "0" * (
-                                        max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
-                                if after.count("0") > 1:
-                                    # print("case 4")
-                                    finalDiff = "".join(finalDiff).rstrip("0")
-                                    finalDiff = finalDiff + "0"
-                                else:
-                                    # print("case 3")
-                                    finalDiff = "".join(finalDiff).rstrip("0")
-                            print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                        # print(finalDiff)
-                        # result is not begin with 0.
-                        else:
-                            # print("@@@@@@@@")
-                            # print("after " + str(after))
-                            if after == "0" and before == "0":
-                                finalDiff = "0.0"
-                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-                            else:
-                                # if (max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) == 0:
-                                #     finalDiff = before + ".0"
-                                #     print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
-                                # else:
-                                # print("case 6")
-                                finalDiff = before + "." + "0" * (
-                                        max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
-                                if after.count("0") == len(after):
-                                    finalDiff = "".join(finalDiff).rstrip("0")
-                                    finalDiff = finalDiff + "0"
-                                else:
-                                    finalDiff = "".join(finalDiff).rstrip("0")
-                                # return finalDiff
-                                print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
-
+                print("The input are big numbers.")
+                a = tmpList[0]
+                b = tmpList[1]
+                c = additionWithDecimal(a, b)
+                d = subtractionWithDecimal(a, b)
+                print("%s + %s = %s" % (a, b, c))
+                print("%s - %s = %s" % (a, b, d))
+                continue
             # two numbers both integer big numbers
             else:
                 a = tmpList[0]
@@ -713,6 +106,391 @@ def addition(a, b):
     finalResult = result[::-1]
     # print("final result：" + finalResult)
     return finalResult
+
+
+def additionWithDecimal(a, b):
+    log1 = a.find('.')
+    # print(log1)
+    log2 = b.find('.')
+    # first number is integer number, second one has a decimal point
+    if log1 == -1:
+        # print("11111111")
+        # split the numbers into two parts with .
+        # xxxFirst is the first part of numbers that before .
+        # xxxFirst is the second part of numbers that after .
+        subStr2 = b.split('.')
+        subStr2First = subStr2[0]
+        subStr2Second = subStr2[1]
+        subStr1First = a
+        subStr1Second = ''
+
+        # Adding 0 in the behind of  the two numbers to make sure that second parts have the same length
+        N = len(subStr2Second) - len(subStr1Second)
+        # print(N)
+        subStr1Second += "0" * N
+
+        # calculate the sum
+        firstPart = addition(subStr1First, subStr2First)
+        secondPart = addition(subStr1Second, subStr2Second)
+        sum = firstPart + "." + secondPart
+        return sum
+        # print("%s + %s = %s" % (a, b, sum))
+
+    # first one a decimal point, second one is integer number
+    elif log2 == -1:
+        # print("22222222")
+        # print(tmpList[0])
+        # log = tmpList[0].find('.')
+        # print("log" + str(log))
+        subStr1 = a.split('.')
+        subStr1First = subStr1[0]
+        subStr1Second = subStr1[1]
+        subStr2First = b
+        subStr2Second = ''
+
+        N = len(subStr1Second) - len(subStr2Second)
+        subStr2Second += "0" * N
+        firstPart = addition(subStr1First, subStr2First)
+        secondPart = addition(subStr1Second, subStr2Second)
+        sum = firstPart + "." + secondPart
+        return sum
+        # print("%s + %s = %s" % (a, b, sum))
+
+    # both with decimal points
+    else:
+        # print("333333333")
+        subStr1 = a.split('.')
+        subStr2 = b.split('.')
+        subStr1First = subStr1[0]
+        subStr1Second = subStr1[1]
+        subStr2First = subStr2[0]
+        subStr2Second = subStr2[1]
+        big = max(len(subStr1Second), len(subStr2Second))
+        # print("big " + str(big))
+
+        # make sure that two numbers after decimal point have same length, then we can calculate them easier
+        if len(subStr1Second) > len(subStr2Second):
+            N = len(subStr1Second) - len(subStr2Second)
+            subStr2Second += "0" * N
+        else:
+            N = len(subStr2Second) - len(subStr1Second)
+            subStr1Second += "0" * N
+
+        first = subStr1First + subStr1Second
+        second = subStr2First + subStr2Second
+        # print("first " + first)
+        # print("second " + second)
+        p = len(subStr1Second)
+        # print("p " + str(p))
+
+        # calculate the sum
+        sum = addition(first, second)
+        sumList = list(sum)
+        sumList.insert(-p, '.')
+        finalSum = "".join(sumList)
+        # print("%s + %s = %s" % (a, b, finalSum))
+        return finalSum
+
+
+# at least one of the numbers is big numbers with a decimal point
+def subtractionWithDecimal(a, b):
+    log1 = a.find('.')
+    # print(log1)
+    log2 = b.find('.')
+    # first number is integer number, second one has a decimal point
+    if log1 == -1:
+        # print("11111111")
+        # split the numbers into two parts with .
+        # xxxFirst is the first part of numbers that before .
+        # xxxFirst is the second part of numbers that after .
+        subStr2 = b.split('.')
+        subStr2First = subStr2[0]
+        subStr2Second = subStr2[1]
+        subStr1First = a
+        subStr1Second = ''
+
+        # Adding 0 in the behind of  the two numbers to make sure that second parts have the same length
+        N = len(subStr2Second) - len(subStr1Second)
+        # print(N)
+        subStr1Second += "0" * N
+        # calculate the diff
+        # just calculate skip . as if they are integer numbers, then at last add . in the result
+        first = subStr1First + subStr1Second
+        second = subStr2First + subStr2Second
+        # print("first " + first)
+        # print("second " + second)
+        diff = subtraction(first, second)
+        # print("diff" + diff)
+        p = len(subStr1Second)
+        # print("p " + str(p))
+        diffList = list(diff)
+        diffList.insert(-p, '.')
+        # print(diffList)
+        finalDiff = "".join(diffList)
+        # print("finalDiff" + finalDiff)
+        # print(finalDiff[0])
+        if finalDiff[0] == '-':
+            middleDiff = finalDiff[1:]
+            # print(middleDiff)
+            middle = middleDiff.split(".")
+            before = middle[0]
+            if len(before) == 0:
+                finalDiff = "-0" + middleDiff
+            # print(finalDiff)
+            # print("%s - %s = %s" % (a, b, finalDiff))
+            return finalDiff
+        else:
+            middle = finalDiff.split(".")
+            before = middle[0]
+            if len(before) == 0:
+                finalDiff = "0" + finalDiff
+            # print(finalDiff)
+            # print("%s - %s = %s" % (a, b, finalDiff))
+            return finalDiff
+    elif log2 == -1:
+        # print("22222222")
+        # print(tmpList[0])
+        # log = tmpList[0].find('.')
+        # print("log" + str(log))
+        subStr1 = a.split('.')
+        subStr1First = subStr1[0]
+        subStr1Second = subStr1[1]
+        subStr2First = b
+        subStr2Second = ''
+
+        N = len(subStr1Second) - len(subStr2Second)
+        subStr2Second += "0" * N
+
+        first = subStr1First + subStr1Second
+        second = subStr2First + subStr2Second
+        # print("first " + first)
+        # print("second " + second)
+        diff = subtraction(first, second)
+        # print("diff" + diff)
+        p = len(subStr1Second)
+        # print("p " + str(p))
+        diffList = list(diff)
+        diffList.insert(-p, '.')
+        finalDiff = "".join(diffList).lstrip("0")
+        # print("diffList1 " + str(diffList))
+        # print("finalDiff1" + str(finalDiff))
+        # if len(before) == 0:
+        #     finalDiff = "0" + finalDiff
+        # # d = "".join(finalDiff[::-1]).lstrip("0")
+        # # print(d)
+        # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+
+        if finalDiff[0] == '-':
+            middleDiff = finalDiff[1:]
+            # print(middleDiff)
+            middle = middleDiff.split(".")
+            before = middle[0]
+            if len(before) == 0:
+                finalDiff = "-0" + middleDiff
+            # print(finalDiff)
+            # print("%s - %s = %s" % (a, b, finalDiff))
+            return finalDiff
+        else:
+            # middle = finalDiff.split(".")
+            # before = middle[0]
+            middle = finalDiff.split(".")
+            before = middle[0]
+            if len(before) == 0:
+                finalDiff = "0" + finalDiff
+            # print(finalDiff)
+            # print("%s - %s = %s" % (a, b, finalDiff))
+            return finalDiff
+
+    else:
+        # print("333333333")
+        subStr1 = a.split('.')
+        subStr2 = b.split('.')
+        subStr1First = subStr1[0]
+        subStr1Second = subStr1[1]
+        subStr2First = subStr2[0]
+        subStr2Second = subStr2[1]
+        big = max(len(subStr1Second), len(subStr2Second))
+        # print("big " + str(big))
+
+        # make sure that two numbers after decimal point have same length, then we can calculate them easier
+        if len(subStr1Second) > len(subStr2Second):
+            N = len(subStr1Second) - len(subStr2Second)
+            subStr2Second += "0" * N
+        else:
+            N = len(subStr2Second) - len(subStr1Second)
+            subStr1Second += "0" * N
+
+        first = subStr1First + subStr1Second
+        second = subStr2First + subStr2Second
+        # print("first " + first)
+        # print("second " + second)
+        p = len(subStr1Second)
+        # print("p " + str(p))
+        # calculate the diff
+        diff = subtraction(first, second)
+        diffList = list(diff)
+        # print(diffList)
+        # diffList.insert(1, '.')
+        finalDiff = "".join(diffList)
+        # print(finalDiff)
+
+        # if the result is negative
+        if finalDiff[0] == '-':
+            # print("result is negative")
+            big = max(len(subStr1Second), len(subStr2Second))
+            diffList.insert(-big, '.')
+            finalDiff = "".join(diffList)
+            # print(finalDiff)
+            middleDiff = finalDiff[1:]
+            # print(middleDiff)
+            middle = middleDiff.split(".")
+            # print(middle)
+            before = middle[0]
+            after = middle[1]
+            before = "".join(before).lstrip("0")
+            # print("before " + before)
+            # print("after " + after)
+            # finalDiff = "-" + before + after
+            # print(finalDiff)
+            if len(after) < big:
+                # print("GGGGGG")
+                # print(finalDiff)
+                # print(max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1)
+                if len(before) == 0:
+                    # print("case 4")
+                    # print(finalDiff)
+                    # before = "0."
+                    # print(before)
+                    # finalDiff = "-" + before + after
+                    finalDiff = "-" + "0." + "0" * (
+                            max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
+                    # print("%s - %s = %s" % (a, b, finalDiff))
+                    return finalDiff
+                    if after == "0":
+                        # print("case 5")
+                        before = "0."
+                        # print(before)
+                        finalDiff = "-" + before + after
+                        # print(finalDiff)
+                        # print("%s - %s = %s" % (a, b, finalDiff))
+                        return finalDiff
+                else:
+                    finalDiff = "-" + "0" * (
+                            max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
+                    # print(finalDiff)
+                    finalDiff = "-" + "0." + "0" * (
+                            max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
+                    # print("%s - %s = %s" % (a, b, finalDiff))
+                    return finalDiff
+            elif len(after) >= big:
+                # print("KKKKKKKKKK")
+                diffList = list(finalDiff)
+                # print(diffList)
+                diffMiddle = "".join(diffList)
+                # print(diffMiddle)
+                listMiddle = diffMiddle.split(".")
+                diffList = listMiddle[0] + listMiddle[1]
+                diffList = list(diffList)
+                # print(diffList)
+                if len(before) == 0 and len(after) == big:
+                    # print("case 3")
+                    diffList.insert(-big, '.')
+                    # print(diffList)
+                    finalDiff = "".join(diffList)
+                    listMiddle = diffMiddle.split("-")
+                    after = listMiddle[1]
+                    # if before.count("0") ==
+                    after = "".join(after).lstrip("0")
+                    finalDiff = "-0" + after
+                    # print("%s - %s = %s" % (a, b, finalDiff))
+                    return finalDiff
+                else:
+                    diffList.insert(-big, '.')
+                    finalDiff = "".join(diffList)
+                    # print("!3333")
+                    # print(finalDiff)
+                    listMiddle = finalDiff.split(".")
+                    after = listMiddle[1]
+                    # diffList = list(diffList)
+                    if after.count("0") >= len(after):
+                        # print("case 2")
+                        # print(before)
+                        finalDiff = "-" + before + "." + after
+                        finalDiff = "".join(finalDiff).rstrip("0")
+                        finalDiff = finalDiff + "0"
+                    else:
+                        # print("case 1")
+                        finalDiff = "".join(finalDiff).rstrip("0")
+                        middleList = finalDiff.split(".")
+                        before = middleList[0]
+                        after = middleList[1]
+                        if before.count("0") >= (len(before) - 1):
+                            before = "0."
+                            finalDiff = "-" + before + after
+                            # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                        else:
+                            finalDiff = finalDiff
+                    # print("%s - %s = %s" % (a, b, finalDiff))
+                    return finalDiff
+            #
+        # if the result is positive
+        else:
+            # print("SSSSSSssss")
+            diffList.insert(-p, '.')
+            finalDiff = "".join(diffList)
+            # print(finalDiff)
+            # middle = finalDiff.split(".")
+            # before = middle[0]
+            middle = finalDiff.split(".")
+            before = middle[0]
+            after = middle[1]
+            # print("before " + before)
+            # print("after " + str(after))
+            # after = middle[1]
+            # result is begin with 0.
+            if len(before) == 0:
+                # print("1111")
+                if after == "0":
+                    # print("case 5")
+                    finalDiff = "0." + after
+                    # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                else:
+                    finalDiff = "0." + "0" * (
+                            max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
+                    if after.count("0") > 1:
+                        # print("case 4")
+                        finalDiff = "".join(finalDiff).rstrip("0")
+                        finalDiff = finalDiff + "0"
+                    else:
+                        # print("case 3")
+                        finalDiff = "".join(finalDiff).rstrip("0")
+                # print("%s - %s = %s" % (a, b, finalDiff))
+                return finalDiff
+            # print(finalDiff)
+            # result is not begin with 0.
+            else:
+                # print("@@@@@@@@")
+                # print("after " + str(after))
+                if after == "0" and before == "0":
+                    finalDiff = "0.0"
+                    # print("%s - %s = %s" % (a, b, finalDiff))
+                    return finalDiff
+                else:
+                    # if (max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) == 0:
+                    #     finalDiff = before + ".0"
+                    #     print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
+                    # else:
+                    # print("case 6")
+                    finalDiff = before + "." + "0" * (
+                            max(len(subStr1Second), len(subStr2Second)) - 1 - len(after) + 1) + after
+                    if after.count("0") == len(after):
+                        finalDiff = "".join(finalDiff).rstrip("0")
+                        finalDiff = finalDiff + "0"
+                    else:
+                        finalDiff = "".join(finalDiff).rstrip("0")
+                    # return finalDiff
+                    # print("%s - %s = %s" % (a, b, finalDiff))
+                    return finalDiff
 
 
 # subtraction function is used to get the sum of two big numbers
