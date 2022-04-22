@@ -14,8 +14,6 @@ def computation():
             # if not match
         elif (not re.match("^[0-9]+$", tmpList[0]) and not re.match("^\d+\.\d+$", tmpList[0])) or (not re.match(
                 "^[0-9]+$", tmpList[1]) and not re.match("^\d+\.\d+$", tmpList[1])):
-            # if not tmpList[0].isdigit() or not tmpList[1].isdigit():
-            # print("QQQQ")
             print("The input is invalid, please input again.")
             continue
         else:
@@ -27,8 +25,10 @@ def computation():
                 b = tmpList[1]
                 c = addition(a, b)
                 d = subtraction(a, b)
+                e = multiplication(a, b)
                 print("%s + %s = %s" % (a, b, c))
                 print("%s - %s = %s" % (a, b, d))
+                print("%s * %s = %s" % (a, b, e))
                 continue
             # at least one of the numbers with a decimal point but both of them are not big numbers
             elif (len(tmpList[0]) < 20 and len(tmpList[1]) < 20) and (
@@ -660,15 +660,16 @@ def computation():
                                 # return finalDiff
                                 print("%s - %s = %s" % (tmpList[0], tmpList[1], finalDiff))
 
-                    # print("%s-%s=%s" % (tmpList[0], tmpList[1], finalDiff))
             # two numbers both integer big numbers
             else:
                 a = tmpList[0]
                 b = tmpList[1]
                 c = addition(a, b)
                 d = subtraction(a, b)
+                e = multiplication(a, b)
                 print("%s + %s = %s" % (a, b, c))
                 print("%s - %s = %s" % (a, b, d))
+                print("%s * %s = %s" % (a, b, e))
                 continue
 
 
@@ -874,6 +875,36 @@ def subtraction(a, b):
                 finalResult = "-" + result[::-1]
             # print("finalResult " + str(finalResult))
     return finalResult
+
+
+def multiplication(a, b):
+    if a == '0' or b == '0':
+        return "0"
+    else:
+        a = a[::-1]
+        b = b[::-1]
+        lengtha = len(a)
+        lengthb = len(b)
+        lengthab = len(a) + len(b)
+        result = [0 for i in range(lengthab)]
+        for i in range(lengtha):
+            for j in range(lengthb):
+                result[i + j] += int(a[i]) * int(b[j])
+        for i in range(lengthab):
+            if result[i] >= 10:
+                result[i + 1] += result[i] // 10
+                result[i] = result[i] % 10
+        print(result)
+        result.reverse()
+        print(result)
+        res = ''
+        for i in range(len(result)):
+            res += ''.join(str(result[i]))
+        finalResult = res.lstrip("0")
+        print(type(finalResult))
+        if a == 0 or b == 0:
+            finalResult = '0' + finalResult
+        return finalResult
 
 
 if __name__ == '__main__':
