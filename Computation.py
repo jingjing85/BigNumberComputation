@@ -672,14 +672,14 @@ def multiplication(a, b):
             if result[i] >= 10:
                 result[i + 1] += result[i] // 10
                 result[i] = result[i] % 10
-        print(result)
+        # print(result)
         result.reverse()
-        print(result)
+        # print(result)
         res = ''
         for i in range(len(result)):
             res += ''.join(str(result[i]))
         finalResult = res.lstrip("0")
-        print(type(finalResult))
+        # print(type(finalResult))
         if a == 0 or b == 0:
             finalResult = '0' + finalResult
         return finalResult
