@@ -2,7 +2,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing Report</title>
+    <title>Test Report</title>
     <link href="https://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css" rel="stylesheet">
@@ -6983,7 +6983,7 @@ body.skin-3 {
 <body class="gray-bg">
 <div class="row  border-bottom white-bg dashboard-header">
     <div class="col-sm-12 text-center">
-        <span style="color: #70AD47; font-size: 25px; font-weight: 700">Testing Report</span>
+        <span style="color: #70AD47; font-size: 25px; font-weight: 700">Test Report</span>
     </div>
 </div>
 <div class="wrapper wrapper-content animated fadeInRight">
@@ -6991,7 +6991,7 @@ body.skin-3 {
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5 style="color: #c4c4c4; font-size: 16px">报告汇总</h5>
+                    <h5 style="color: #c4c4c4; font-size: 16px">Report Summary</h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -7006,43 +7006,44 @@ body.skin-3 {
                         <div class="col-sm-6 b-r" style="height:350px">
                             <form class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label text-info">Test Name:</label>
+                                    <label class="col-sm-2 control-label text-info">case name:</label>
                                     <div class="col-sm-5">
                                         <span class="form-control" id="testName"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label text-info">Total #:</label>
+                                    <label class="col-sm-2 control-label text-info"># of test
+                                        cases:</label>
                                     <div class="col-sm-5">
                                         <span class="form-control" id="testAll"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label text-navy">Pass:</label>
+                                    <label class="col-sm-2 control-label text-navy"># of sucess:</label>
                                     <div class="col-sm-5">
                                         <span class="form-control" id="testPass"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label text-danger">Fail:</label>
+                                    <label class="col-sm-2 control-label text-danger"># of failure:</label>
                                     <div class="col-sm-5">
                                         <span class="form-control text-danger" id="testFail"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label text-warning">Skip:</label>
+                                    <label class="col-sm-2 control-label text-warning"># of skipped:</label>
                                     <div class="col-sm-5">
                                         <span class="form-control text-warning" id="testSkip"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label text-info">Starting time:</label>
+                                    <label class="col-sm-2 control-label text-info">start time:</label>
                                     <div class="col-sm-5">
                                         <span class="form-control" id="beginTime"></span>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label text-info">Runtime:</label>
+                                    <label class="col-sm-2 control-label text-info">run time:</label>
                                     <div class="col-sm-5">
                                         <span class="form-control" id="totalTime"></span>
                                     </div>
@@ -7060,14 +7061,14 @@ body.skin-3 {
     <div id="alert-tips" class="alert alert-danger alert-dismissible" role="alert">
          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-         <strong>Warning!</strong> &nbsp;&nbsp;&nbsp;存在报错的用例，请优先查看！
+         <strong>Warning!</strong> &nbsp;&nbsp;&nbsp;There are failure test cases, please check first!
     </div>
 
     <div class="row">
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5 style="color: #c4c4c4; font-size: 16px">details</h5>
+                    <h5 style="color: #c4c4c4; font-size: 16px">Details</h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -7079,29 +7080,29 @@ body.skin-3 {
                 </div>
                 <div class="ibox-content">
                     <div class="input-group panel-heading" style="width: 100%; background-color: #70AD47; margin-bottom: 10px; text-align: left; font-family: Consolas;">
-                        <label style="color: snow">Testing class:</label>
+                        <label style="color: snow">Test class:</label>
                         <select class="chosen-select form-control" data-placeholder="ALL" style="width: 300px;" name="filterClass" id="filterClass">
                             <option value="">ALL</option>
                         </select>
-                        <label style="color: snow;margin-left: 10px;">Result:</label>
+                        <label style="color: snow;margin-left: 10px;">result:</label>
                         <select class="chosen-select form-control" data-placeholder="ALL" style="width: 300px;" name="filterResult" id="filterResult">
                             <option value="">ALL</option>
                         </select>
                         <div style="float: right">
                             <label class="form-control">
                                 <span class="text-info"># of test cases: </span><span class="text-info" id="filterAll">3</span><span> | </span>
-                                <span class="text-success">pass: </span><span class="text-success" id="filterOk">3</span><span> | </span>
-                                <span class="text-danger">fail: </span><span class="text-danger" id="filterFail">3</span><span> | </span>
-                                <span class="text-warning">skip: </span><span class="text-warning" id="filterSkip">3</span>
+                                <span class="text-success">Success: </span><span class="text-success" id="filterOk">3</span><span> | </span>
+                                <span class="text-danger">Failure: </span><span class="text-danger" id="filterFail">3</span><span> | </span>
+                                <span class="text-warning">Skipped: </span><span class="text-warning" id="filterSkip">3</span>
                             </label>
                         </div>
                     </div>
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th>ID</th>
-                            <th>Class</th>
-                            <th>Method</th>
+                            <th>number</th>
+                            <th>Test class</th>
+                            <th>Test Method</th>
                             <th>Description</th>
                             <th>Run time</th>
                             <th>result</th>
@@ -7159,14 +7160,14 @@ body.skin-3 {
 
 
     var resultData = {
-    "testPass": 35,
+    "testPass": 42,
     "testResult": [
         {
             "className": "TestComputation",
             "methodName": "test_addition1",
             "description": " the input numbers both integer ,but not big numbers ",
-            "spendTime": "9.01e-05 s",
-            "status": "pass",
+            "spendTime": "0.000173 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 1",
@@ -7178,8 +7179,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_addition2",
             "description": " the input numbers both integer and big numbers ",
-            "spendTime": "6.2e-05 s",
-            "status": "pass",
+            "spendTime": "7.2e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 2",
@@ -7191,8 +7192,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_addition3",
             "description": " input one is big number and another one is not big number ",
-            "spendTime": "5.41e-05 s",
-            "status": "pass",
+            "spendTime": "6.08e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 3",
@@ -7204,8 +7205,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_addition4",
             "description": "Input two numbers with same length, output result correctly",
-            "spendTime": "5.51e-05 s",
-            "status": "pass",
+            "spendTime": "6.41e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 4",
@@ -7217,8 +7218,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_addition5",
             "description": "Input length of first number is longer than the second one’s",
-            "spendTime": "5.39e-05 s",
-            "status": "pass",
+            "spendTime": "6.58e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 5",
@@ -7230,8 +7231,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_addition6",
             "description": "Input length of second number is longer than the first one’s",
-            "spendTime": "5.2e-05 s",
-            "status": "pass",
+            "spendTime": "6.1e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 6",
@@ -7243,8 +7244,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_additionWithDecimal1",
             "description": " at least one of the numbers with a decimal point but both of them are not big numbers ",
-            "spendTime": "5.03e-05 s",
-            "status": "pass",
+            "spendTime": "6.39e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 7",
@@ -7256,8 +7257,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_additionWithDecimal2",
             "description": " at least one of the numbers with a decimal point and both of them are big numbers ",
-            "spendTime": "0.000166 s",
-            "status": "pass",
+            "spendTime": "0.000122 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 8",
@@ -7269,8 +7270,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_additionWithDecimal3",
             "description": "Input two numbers with same length",
-            "spendTime": "6.51e-05 s",
-            "status": "pass",
+            "spendTime": "7.49e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 9",
@@ -7282,8 +7283,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_additionWithDecimal4",
             "description": "Input length of first number is longer than the second one’s",
-            "spendTime": "5.82e-05 s",
-            "status": "pass",
+            "spendTime": "8.7e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 10",
@@ -7295,8 +7296,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_additionWithDecimal5",
             "description": "Input length of second number is longer than the first one’s",
-            "spendTime": "6.1e-05 s",
-            "status": "pass",
+            "spendTime": "8.2e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 11",
@@ -7306,10 +7307,101 @@ body.skin-3 {
         },
         {
             "className": "TestComputation",
+            "methodName": "test_input",
+            "description": " the # of input is 2 ",
+            "spendTime": "5.32e-05 s",
+            "status": "Success",
+            "log": [
+                "Before Test",
+                "Test case 36",
+                "After Test",
+                ""
+            ]
+        },
+        {
+            "className": "TestComputation",
+            "methodName": "test_input1",
+            "description": " the # of input is 3 ",
+            "spendTime": "4.51e-05 s",
+            "status": "Success",
+            "log": [
+                "Before Test",
+                "Test case 37",
+                "After Test",
+                ""
+            ]
+        },
+        {
+            "className": "TestComputation",
+            "methodName": "test_input2",
+            "description": " the # of input is null ",
+            "spendTime": "5.2e-05 s",
+            "status": "Success",
+            "log": [
+                "Before Test",
+                "Test case 38",
+                "After Test",
+                ""
+            ]
+        },
+        {
+            "className": "TestComputation",
+            "methodName": "test_input3",
+            "description": " the input are not integers or integers with a decimal ",
+            "spendTime": "0.000316 s",
+            "status": "Success",
+            "log": [
+                "Before Test",
+                "Test case 39",
+                "After Test",
+                ""
+            ]
+        },
+        {
+            "className": "TestComputation",
+            "methodName": "test_input4",
+            "description": " the input are both integers and at least one with a decimal ",
+            "spendTime": "0.00017 s",
+            "status": "Success",
+            "log": [
+                "Before Test",
+                "Test case 40",
+                "After Test",
+                ""
+            ]
+        },
+        {
+            "className": "TestComputation",
+            "methodName": "test_input5",
+            "description": " at least one of the input numbers is not big number ",
+            "spendTime": "5.32e-05 s",
+            "status": "Success",
+            "log": [
+                "Before Test",
+                "Test case 41",
+                "After Test",
+                ""
+            ]
+        },
+        {
+            "className": "TestComputation",
+            "methodName": "test_input6",
+            "description": "both of the input numbers are big numbers with a decimal ",
+            "spendTime": "4.29e-05 s",
+            "status": "Success",
+            "log": [
+                "Before Test",
+                "Test case 42",
+                "After Test",
+                ""
+            ]
+        },
+        {
+            "className": "TestComputation",
             "methodName": "test_multiplication1",
             "description": "the input numbers both integer ,but not big numbers",
-            "spendTime": "5.41e-05 s",
-            "status": "pass",
+            "spendTime": "6.7e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 30",
@@ -7321,8 +7413,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_multiplication2",
             "description": " the input numbers both integer and big numbers ",
-            "spendTime": "0.000234 s",
-            "status": "pass",
+            "spendTime": "0.000266 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 31",
@@ -7334,8 +7426,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_multiplication3",
             "description": " input one is big number and another one is not big number ",
-            "spendTime": "7.89e-05 s",
-            "status": "pass",
+            "spendTime": "8.92e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 32",
@@ -7347,8 +7439,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_multiplication4",
             "description": "Input two numbers with same length",
-            "spendTime": "0.000258 s",
-            "status": "pass",
+            "spendTime": "0.000301 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 33",
@@ -7360,8 +7452,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_multiplication5",
             "description": "Input two numbers with different length",
-            "spendTime": "0.000307 s",
-            "status": "pass",
+            "spendTime": "0.000349 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 34",
@@ -7373,8 +7465,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_multiplication6",
             "description": "one of the input number is 0",
-            "spendTime": "4.1e-05 s",
-            "status": "pass",
+            "spendTime": "4.51e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 35",
@@ -7386,8 +7478,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtraction1",
             "description": "the input numbers both integer ,but not big numbers",
-            "spendTime": "4.6e-05 s",
-            "status": "pass",
+            "spendTime": "5.29e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 12",
@@ -7399,8 +7491,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtraction2",
             "description": " the input numbers both integer and big numbers ",
-            "spendTime": "5.72e-05 s",
-            "status": "pass",
+            "spendTime": "6.41e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 13",
@@ -7412,8 +7504,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtraction3",
             "description": " input one is big number and another one is not big number ",
-            "spendTime": "5.1e-05 s",
-            "status": "pass",
+            "spendTime": "5.79e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 14",
@@ -7425,8 +7517,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtraction4",
             "description": "Input two numbers with same length",
-            "spendTime": "5.79e-05 s",
-            "status": "pass",
+            "spendTime": "6.51e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 15",
@@ -7438,8 +7530,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtraction5",
             "description": "Input two numbers with different length",
-            "spendTime": "5.77e-05 s",
-            "status": "pass",
+            "spendTime": "6.6e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 16",
@@ -7451,8 +7543,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtraction6",
             "description": "the result is positive",
-            "spendTime": "5.91e-05 s",
-            "status": "pass",
+            "spendTime": "6.48e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 17",
@@ -7464,8 +7556,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtraction7",
             "description": "the result is negative",
-            "spendTime": "6.1e-05 s",
-            "status": "pass",
+            "spendTime": "6.6e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 18",
@@ -7477,8 +7569,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtraction8",
             "description": "the result is 0",
-            "spendTime": "5.77e-05 s",
-            "status": "pass",
+            "spendTime": "6.7e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 19",
@@ -7490,8 +7582,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtraction9",
             "description": "the result starts with 0",
-            "spendTime": "5.82e-05 s",
-            "status": "pass",
+            "spendTime": "6.48e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 20",
@@ -7503,8 +7595,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtractionWithDecimal1",
             "description": "the input numbers both integer ,but not big numbers",
-            "spendTime": "5.58e-05 s",
-            "status": "pass",
+            "spendTime": "6.6e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 21",
@@ -7516,8 +7608,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtractionWithDecimal2",
             "description": " the input numbers both integer and big numbers ",
-            "spendTime": "7.01e-05 s",
-            "status": "pass",
+            "spendTime": "7.89e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 22",
@@ -7529,8 +7621,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtractionWithDecimal3",
             "description": " input one is big number and another one is not big number ",
-            "spendTime": "6.2e-05 s",
-            "status": "pass",
+            "spendTime": "6.99e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 23",
@@ -7542,8 +7634,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtractionWithDecimal4",
             "description": "Input two numbers with same length",
-            "spendTime": "6.87e-05 s",
-            "status": "pass",
+            "spendTime": "7.82e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 24",
@@ -7555,8 +7647,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtractionWithDecimal5",
             "description": "Input two numbers with different length",
-            "spendTime": "0.00011 s",
-            "status": "pass",
+            "spendTime": "8.11e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 25",
@@ -7568,8 +7660,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtractionWithDecimal6",
             "description": "the result is positive",
-            "spendTime": "8.2e-05 s",
-            "status": "pass",
+            "spendTime": "8.49e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 26",
@@ -7581,8 +7673,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtractionWithDecimal7",
             "description": "the result is negative",
-            "spendTime": "8.08e-05 s",
-            "status": "pass",
+            "spendTime": "8.8e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 27",
@@ -7594,8 +7686,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtractionWithDecimal8",
             "description": "the result is 0",
-            "spendTime": "7.18e-05 s",
-            "status": "pass",
+            "spendTime": "8.01e-05 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 28",
@@ -7607,8 +7699,8 @@ body.skin-3 {
             "className": "TestComputation",
             "methodName": "test_subtractionWithDecimal9",
             "description": "the result starts with 0",
-            "spendTime": "7.39e-05 s",
-            "status": "pass",
+            "spendTime": "0.000139 s",
+            "status": "Success",
             "log": [
                 "Before Test",
                 "Test case 29",
@@ -7618,28 +7710,28 @@ body.skin-3 {
         }
     ],
     "testName": "description",
-    "testAll": 35,
+    "testAll": 42,
     "testFail": 0,
-    "beginTime": "2022-04-25 18:58:10",
+    "beginTime": "2022-05-08 16:09:45",
     "totalTime": "0s",
     "testSkip": 0,
     "testError": 0
 };
     function details(obj) {
-        if ($(obj).text() == 'deploy') {
+        if ($(obj).text() == 'expand') {
             var len = $(obj).parent().parent().children().length;
             var detailLog = "";
             var logs = resultData["testResult"][parseInt($(obj).attr("buttonIndex"))]["log"];
-            $(obj).text("withdraw");
+            $(obj).text("shrink");
             $(obj).removeClass("btn-primary");
             $(obj).addClass("btn-danger");
             $.each(logs, function (i, n) {
                 detailLog = detailLog + "<p>" + n + "</p>";
             });
             $(obj).parent().parent().after("<tr><td colspan='" + len + "'><div style='font-family: Consolas;font-size:12px'>" + detailLog + "</div></td></tr>");
-        } else if ($(obj).text() == 'withdraw') {
+        } else if ($(obj).text() == 'shrink') {
             $(obj).parent().parent().next().remove();
-            $(obj).text("deploy");
+            $(obj).text("expand");
             $(obj).removeClass("btn-danger");
             $(obj).addClass("btn-primary");
         }
@@ -7686,19 +7778,19 @@ body.skin-3 {
                 if((className=="" || n["className"]==className) && (caseResult=="" || n["status"]==caseResult)){
                     filterAll += 1;
                     var status = "";
-                    if (n["status"] == 'pass') {
+                    if (n["status"] == '成功') {
                         filterOk += 1;
-                        status = "<td><span class='text-success'>pass</span></td>";
-                    } else if (n["status"] == 'fail') {
+                        status = "<td><span class='text-success'>成功</span></td>";
+                    } else if (n["status"] == '失败') {
                         filterFail += 1;
-                        status = "<td><span class='text-danger'>fail</span></td>";
-                    } else if (n["status"] == 'error') {
+                        status = "<td><span class='text-danger'>失败</span></td>";
+                    } else if (n["status"] == '错误') {
                         filterFail += 1;
                         errorFlag = true;
-                        status = "<td><span class='text-danger'>error</span></td>";
-                    } else if (n["status"] == 'skip') {
+                        status = "<td><span class='text-danger'>错误</span></td>";
+                    } else if (n["status"] == '跳过') {
                         filterSkip += 1;
-                        status = "<td><span class='text-warning'>skip</span></td>";
+                        status = "<td><span class='text-warning'>跳过</span></td>";
                     } else {
                         status = "<td><span>" + n["status"] + "</span></td>";
                     }
@@ -7708,7 +7800,7 @@ body.skin-3 {
                         "<td>" + n["methodName"] + "</td>" +
                         "<td>"+n["description"] + "</td>" +
                         "<td>" + n["spendTime"] + "</td>" +
-                        status + "<td><button type='button' onclick='details(this)' buttonIndex='" + i + "' class='btn btn-primary btn-xs' style='margin-bottom: 0px'>deploy</button></td></tr>"
+                        status + "<td><button type='button' onclick='details(this)' buttonIndex='" + i + "' class='btn btn-primary btn-xs' style='margin-bottom: 0px'>expand</button></td></tr>"
                     $("#detailBody").append(tr);
                 }
             });
@@ -7741,7 +7833,7 @@ body.skin-3 {
         function pie() {
             var option = {
                 title: {
-                    text: 'Result',
+                    text: 'Results',
                     subtext: '',
                     x: 'center',
                     textStyle: {
@@ -7756,7 +7848,7 @@ body.skin-3 {
                     orient: 'vertical',
                     y: 'center',
                     x: 'right',
-                    data: ['fail', 'skip', 'pass']
+                    data: ['Failure', 'Skipped', 'Success']
                 },
                 series: [
                     {
@@ -7765,9 +7857,9 @@ body.skin-3 {
                         radius: '55%',
                         center: ['50%', '60%'],
                         data: [
-                            {value: resultData["testFail"], name: 'fail'},
-                            {value: resultData["testSkip"], name: 'skip'},
-                            {value: resultData["testPass"], name: 'pass'}
+                            {value: resultData["testFail"], name: 'Failure'},
+                            {value: resultData["testSkip"], name: 'Skipped'},
+                            {value: resultData["testPass"], name: 'Success'}
                         ],
                         color: [
                                     "#F25929",
