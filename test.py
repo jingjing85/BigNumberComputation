@@ -1,17 +1,10 @@
 import unittest
+import re
+
 import Computation
 
 
 class TestComputation(unittest.TestCase):
-
-    # def test_input(self):
-    #     ''' the # of the input number '''
-    #     numList = ['123324435435435', '23433243545465', '786769']
-    #     # length = len(numList)
-    #     expected_result = {"msg": "The # of the input is not two, please input again."}
-    #     actual_result = Computation()
-    #     self.assertTrue(expected_result == actual_result)
-
     def setUp(self):
         print("Before Test")
 
@@ -220,6 +213,72 @@ class TestComputation(unittest.TestCase):
         print("Test case 35")
         self.assertEqual(Computation.multiplication('0', '876543823213432429990000000'), '0')
         self.assertEqual(Computation.multiplication('0', '0'), '0')
+
+    def test_input(self):
+        ''' the # of input is 2 '''
+        print("Test case 36")
+        # with mock.patch('builtins.input', return_value="2 4 7"):
+        #     assert Computation.check() == 'The # of the input is not two, please input again.'\
+        data = [12, 68976758824]
+        self.assertEqual(len(data), 2, msg="The # of the input is  two.")
+
+    def test_input1(self):
+        ''' the # of input is 3 '''
+        print("Test case 37")
+        # with mock.patch('builtins.input', return_value="2 4 7"):
+        #     assert Computation.check() == 'The # of the input is not two, please input again.'\
+        data = [12, 68976758824, 4]
+        self.assertNotEqual(len(data), 2, msg="The # of the input is not two, please input again.")
+
+    def test_input2(self):
+        ''' the # of input is null '''
+        print("Test case 38")
+        # with mock.patch('builtins.input', return_value="2 4 7"):
+        #     assert Computation.check() == 'The # of the input is not two, please input again.'\
+        data = []
+        self.assertFalse(len(data) == 2, msg="The # of the input is not two, please input again.")
+
+    def test_input3(self):
+        ''' the input are not integers or integers with a decimal '''
+        print("Test case 39")
+        data = ['a34345', 'dtfh']
+        self.assertFalse((re.match("^[0-9]+$", data[0])), msg="The input is invalid, please input again.")
+        self.assertFalse((re.match("^[0-9]+$", data[1])), msg="The input is invalid, please input again.")
+        self.assertFalse((re.match("^\d+\.\d+$", data[0])), msg="The input is invalid, please input again.")
+        self.assertFalse((re.match("^\d+\.\d+$", data[1])), msg="The input is invalid, please input again.")
+
+    def test_input4(self, numberList=None):
+        ''' the input are both integers and at least one with a decimal '''
+        print("Test case 40")
+        # with mock.patch('builtins.input', return_value="2 4 7"):
+        #     assert Computation.check() == 'The # of the input is not two, please input again.'\
+        data = ['3453645675', '32878782535.768769']
+        self.assertTrue(re.match("^[0-9]+$", data[0]))
+        self.assertTrue(re.match("^\d+\.\d+$", data[1]))
+
+    def test_input5(self):
+        ''' at least one of the input numbers is not big number '''
+        print("Test case 41")
+        # with mock.patch('builtins.input', return_value="2 4 7"):
+        #     assert Computation.check() == 'The # of the input is not two, please input again.'\
+        data = ['143454657657', '686784637']
+        self.assertTrue((len(data[0]) < 20 or len(data[1]) < 20), msg="The input are big numbers.")
+
+    def test_input6(self):
+        '''both of the input numbers are big numbers without a decimal '''
+        print("Test case 41")
+        # with mock.patch('builtins.input', return_value="2 4 7"):
+        #     assert Computation.check() == 'The # of the input is not two, please input again.'\
+        data = ['14345465765734543645756768698797', '686784637938025843859478689548695847896589']
+        self.assertTrue((len(data[0]) >= 20 or len(data[1]) >= 20))
+
+    def test_input6(self):
+        '''both of the input numbers are big numbers with a decimal '''
+        print("Test case 42")
+        # with mock.patch('builtins.input', return_value="2 4 7"):
+        #     assert Computation.check() == 'The # of the input is not two, please input again.'\
+        data = ['14345465765734543645756768698797.3456', '686784637938025843859478689548695847896589.76778']
+        self.assertTrue((len(data[0]) >= 20 or len(data[1]) >= 20))
 
 
 if __name__ == '__main__':
