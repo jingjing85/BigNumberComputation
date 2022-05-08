@@ -30,4 +30,20 @@ Allow the input big numbers to have a decimal point. One number can have at most
 6. Input length of second number is longer than the first one’s, output result correctly.
 
 
+Requirements 3.0
+
+It also supports multiplication of two big numbers. The multiplication is only allowed for integers without a decimal point. And the version is 3.0
+1. Allow inputting big numbers without a decimal point
+2. positive integer numbers
+3. multiplication
+4. support the numbers with same digits and different digits
+5. If input numbers are not big numbers (less than 20 digits), output result correctly.
+6. If input numbers are both big numbers, output result correctly.
+7. If input one is big number and another one is not big number, output result correctly.
+8. If input number are not integer, then give a hint that just allow to input the integer numbers and allow the users to input numbers again.
+9. If input numbers are more than two, then give a hint that just allow to input two numbers and allow the users to input numbers again.
+10. Input two numbers with same length, output result correctly.
+11. Input length of first number is longer than the second one’s, output result correctly. 
+12. Input length of second number is longer than the first one’s, output result correctly.
+
 
