@@ -5,25 +5,24 @@ def computation():
     while True:
         # tmpList = ['0'] * 2
         # print(tmpList)
-        tmpList = input("Please input two big numbers and split them with one white space:").strip().split()
+        tmpList = input("Please input two big numbers and split them with white space:").strip().split()
+        a = tmpList[0]
+        b = tmpList[1]
         # print(tmpList, sys._getframe().f_lineno)
         if len(tmpList) != 2:
             print("The # of the input is not two, please input again. ")
             continue
             # check the input, if they match the format(integer big numbers or big number with one decimal point)
             # if not match
-        elif (not re.match("^[0-9]+$", tmpList[0]) and not re.match("^\d+\.\d+$", tmpList[0])) or (not re.match(
-                "^[0-9]+$", tmpList[1]) and not re.match("^\d+\.\d+$", tmpList[1])):
+        elif (not re.match("^[0-9]+$", a) and not re.match("^\d+\.\d+$", a)) or (not re.match(
+                "^[0-9]+$", b) and not re.match("^\d+\.\d+$", b)):
             print("The input is invalid, please input again.")
             continue
-
         else:
             # two numbers both integer numbers but not big numbers
-            if (len(tmpList[0]) < 20 or len(tmpList[1]) < 20) and (
-                    re.match("^[0-9]+$", tmpList[0]) and re.match("^[0-9]+$", tmpList[1])):
+            if (len(a) < 20 or len(b) < 20) and (
+                    re.match("^[0-9]+$", a) and re.match("^[0-9]+$", b)):
                 print("The input is not big number.")
-                a = tmpList[0]
-                b = tmpList[1]
                 c = addition(a, b)
                 d = subtraction(a, b)
                 e = multiplication(a, b)
@@ -38,7 +37,7 @@ def computation():
                 a = tmpList[0]
                 b = tmpList[1]
                 c = additionWithDecimal(a, b)
-                d = subtractionWithDecimal(a,b)
+                d = subtractionWithDecimal(a, b)
                 print("%s + %s = %s" % (a, b, c))
                 print("%s - %s = %s" % (a, b, d))
                 continue
